@@ -1,0 +1,40 @@
+package datetime;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class demoLocalDate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		LocalDate ld=LocalDate.now();
+		System.out.println(ld);
+		
+		LocalTime lm= LocalTime.now();
+		System.out.println(lm);
+		
+		LocalDateTime ldt= LocalDateTime.now();
+		System.out.println(ldt);
+		
+		
+		
+		DateTimeFormatter pattern= DateTimeFormatter.ofPattern("dd*/*MM*/*YYYY");
+		String format= pattern.format(ld);
+		
+		System.out.println(format);
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter date Pattern ");
+		String s=sc.nextLine();
+		DateTimeFormatter pat= DateTimeFormatter.ofPattern(s);
+		String form = pat.format(ld);
+		System.out.println(form);
+		
+	}
+
+}

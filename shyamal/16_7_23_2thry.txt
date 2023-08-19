@@ -1,0 +1,35 @@
+function 
+1 required arguments / parameters and return value 
+2 keyword arguments and return value
+
+1. vector in r programming similar as 1d numpy array in python
+----arry means collection of similar type of data
+---vecot means many rows / many record but only one column similar ad 1D array and datatype will be same and variable
+name will be same but index will be different
+= vector means collection of similar type of data
+
+--there are different types of method to create a vector 
+1. first method: c() inbuilt function of R programming
+c() means combined function 
+
+in R programming ,only support posititve indexing means 1-n,
+not support negative indexing in R programming but in python ,both indexing(+ve and -ve indexing )are posible
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

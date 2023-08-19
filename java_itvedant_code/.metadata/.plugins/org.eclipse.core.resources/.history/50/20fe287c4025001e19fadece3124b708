@@ -1,0 +1,24 @@
+package datetime;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+
+public class demoLocalDate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		LocalDate ld=LocalDate.now();
+		System.out.println(ld);
+		
+		LocalTime lm= LocalTime.now();
+		System.out.println(lm);
+		
+		LocalDateTime ldt= LocalDateTime.now();
+		System.out.println(ldt);
+
+	}
+
+}
