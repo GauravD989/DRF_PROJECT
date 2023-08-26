@@ -1,8 +1,14 @@
 package com.example.demo.entities;
 
+import java.time.Instant;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -31,5 +37,11 @@ public class User {
 	@Column(length = 15)
 	private String password;
 	private String image;
+	@CreationTimestamp
+	private Instant CreatedTime;
+	@UpdateTimestamp
+	private Instant UpdatedTime;
+	@OneToOne(mappedBy = "user")
+	private Address address;
 
 }

@@ -1,0 +1,13 @@
+package com.example.demo.validators;
+
+import jakarta.validation.Payload;
+
+public interface ValidateAbout {
+	
+	String message() default "About cannot be more than 20 characters";
+
+	Class<?>[] groups() default { };
+
+	Class<? extends Payload>[] payload() default { };
+
+}

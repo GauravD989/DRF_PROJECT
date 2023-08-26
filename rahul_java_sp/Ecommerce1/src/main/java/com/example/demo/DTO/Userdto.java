@@ -1,5 +1,7 @@
 package com.example.demo.DTO;
 
+import com.example.demo.validators.ValidateAbout;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -23,13 +25,13 @@ public class Userdto {
 	private String id;
 	@NotBlank(message = "Username cannot be blank")
 	private String name;
-	
+	@ValidateAbout
 	private String about;
 	private String gender;
 	@Email(message = "Please enter valid email id")
 	private String email;
 	@Size(min = 6, max = 20, message = "Password must be more than 6 charecters")
-	@Pattern(regexp = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[!@#$%^&*]) [a-zA-Z\\d!@#$%^&*]{6,22}$")
+	@Pattern(regexp = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[!@#$%^&*])[a-zA-Z\\d!@#$%^&*]{6,22}$")
 	private String password;
 	private String image;
 

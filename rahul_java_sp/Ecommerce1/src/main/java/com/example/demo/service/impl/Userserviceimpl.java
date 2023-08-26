@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.DTO.Userdto;
+import com.example.demo.Exception.UserNotFoundException;
 import com.example.demo.entities.User;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.Userservice;
@@ -38,7 +39,7 @@ public class Userserviceimpl implements Userservice {
 	@Override
 	public Userdto updateUser(Userdto userdto, String id) {
 		// TODO Auto-generated method stub
-		User u = repository.findById(id).orElseThrow(()->new RuntimeException("User Not found"));
+		User u = repository.findById(id).orElseThrow(()->new UserNotFoundException("User Not found"));
 		u.setName(userdto.getName());
 		u.setAbout(userdto.getAbout());
 		u.setImage(userdto.getImage());
@@ -55,7 +56,7 @@ public class Userserviceimpl implements Userservice {
 	@Override
 	public void deleteUser(String id) {
 		// TODO Auto-generated method stub
-		User u = repository.findById(id).orElseThrow(()->new RuntimeException("User not found"));
+		User u = repository.findById(id).orElseThrow(()->new UserNotFoundException("User not found"));
 		repository.delete(u);
 		
 	}
@@ -73,7 +74,7 @@ public class Userserviceimpl implements Userservice {
 	@Override
 	public Userdto getById(String id) {
 		// TODO Auto-generated method stub
-		User u = repository.findById(id).orElseThrow(()->new RuntimeException("user not found by this id"));
+		User u = repository.findById(id).orElseThrow(()->new UserNotFoundException("user not found by this id"));
 		Userdto dto = entityToDto(u);
 		
 		return dto;
@@ -82,7 +83,9 @@ public class Userserviceimpl implements Userservice {
 	@Override
 	public Userdto getByEmail(String email) {
 		// TODO Auto-generated method stub
-		return null;
+		User u = repository.findByEmail(email).orElseThrow(()-> new UserNotFoundException("email not found"));
+		Userdto dto = entityToDto(u);
+		return dto;
 	}
 	
 	//Dto to entity
